@@ -1,3 +1,11 @@
 # Ignore implementation and plan files
 implementations.md
 plan.md
+
+# Python environments and cache
+.env
+env/
+venv/
+.venv/
+__pycache__/
+*.pyc
