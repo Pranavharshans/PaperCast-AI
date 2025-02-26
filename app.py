@@ -38,20 +38,43 @@ def main():
                         st.subheader("Generated Summary")
                         st.write(summary)
                         
+                        # Save the summary to a JSON file
+                        json_path = "podcast_script.json"
+                        with open(json_path, 'w') as f:
+                            f.write(summary)
+                        
                         st.success("PDF processing complete!")
 
-                        # TODO: Implement audio conversion from summary
-                        # Audio player section (placeholder for now)
-                        st.subheader("Listen to Podcast")
-                        st.info("Audio conversion coming soon!")
-                        
-                        # Download button for summary (temporary)
-                        st.download_button(
-                            label="Download Summary",
-                            data=summary,
-                            file_name=f"summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
-                            mime="text/plain"
-                        )
+                        # Generate audio from the JSON
+                        try:
+                            os.system(f"python podcast_generation.py")
+                            
+                            # Check if audio file was generated
+                            if os.path.exists("podcast.wav"):
+                                st.subheader("Listen to Podcast")
+                                st.audio("podcast.wav")
+                                
+                                # Download buttons
+                                col1, col2 = st.columns(2)
+                                with col1:
+                                    with open("podcast.wav", "rb") as f:
+                                        st.download_button(
+                                            label="Download Audio",
+                                            data=f,
+                                            file_name=f"podcast_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav",
+                                            mime="audio/wav"
+                                        )
+                                with col2:
+                                    st.download_button(
+                                        label="Download Script",
+                                        data=summary,
+                                        file_name=f"script_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                                        mime="application/json"
+                                    )
+                            else:
+                                st.error("Audio generation failed")
+                        except Exception as e:
+                            st.error(f"Error generating audio: {str(e)}")
                     except Exception as e:
                         st.error(f"Error processing PDF: {str(e)}")
         finally:
