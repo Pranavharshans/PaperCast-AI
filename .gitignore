@@ -13,3 +13,4 @@ __pycache__/
 # TTS files
 kokoro-tts/
 kokoro-v1.0.onnx
+voices-v1.0.bin
