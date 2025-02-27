@@ -1,100 +1,68 @@
 ```json
 [
-{
-  "voice": "af_sarah",
-  "text": "Hey, Michael! Ready to talk about something that's literally cracking up... infrastructure?"
-},
-{
-  "voice": "am_michael",
-  "text": "Sarah, you know I love a good infrastructure chat! What's on the agenda today? More potholes?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Even better! We're diving into a research paper on using AI to detect cracks in bridges. Think of it as AI bridge doctors!"
-},
-{
-  "voice": "am_michael",
-  "text": "AI bridge doctors? That sounds fascinating! So, no more humans dangling from ropes with magnifying glasses?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Exactly! This paper focuses on YOLOv8, which stands for 'You Only Look Once' - it's an object detection system. They tested it on different sized models to see which was the most accurate."
-},
-{
-  "voice": "am_michael",
-  "text": "Okay, so YOLOv8 is like a super-efficient crack-spotting robot. But why so many different sizes of models?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Think of it like buying a car. You have a compact car (nano model) that's fast and efficient, and then you have a big truck (extra-large model) that's powerful but uses more gas. Each model is a trade off between speed and accuracy."
-},
-{
-  "voice": "am_michael",
-  "text": "Got it! So, which 'car' performed the best in spotting those pesky cracks?"
-},
-{
-  "voice": "af_sarah",
-  "text": "The YOLOv8m, the medium model, optimized with something called Stochastic Gradient Descent, took the crown. It balanced speed and accuracy exceptionally well."
-},
-{
-  "voice": "am_michael",
-  "text": "Stochastic Gradient Descent... sounds complicated. Can you break that down for me?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Sure! Imagine you're trying to find the lowest point in a valley. Instead of looking at the entire valley at once, you take small, random steps downhill. That's kind of what SGD does – it helps the AI learn by making small adjustments based on random data."
-},
-{
-  "voice": "am_michael",
-  "text": "Ah, so it's like learning by trial and error! Makes sense. So, what's the big deal about detecting cracks anyway? It's just a crack, right?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Not quite! Cracks are like the first signs of aging in bridges. If we can detect them early, we can prevent bigger, more dangerous problems down the line. It's all about preventative maintenance."
-},
-{
-  "voice": "am_michael",
-  "text": "So, this AI could potentially save lives and a whole lot of money in repairs? That's pretty awesome!"
-},
-{
-  "voice": "af_sarah",
-  "text": "Exactly! And the researchers used a dataset from Roboflow, which helped them manage and prepare the images of cracks for the AI to learn from."
-},
-{
-  "voice": "am_michael",
-  "text": "Roboflow sounds like a handy tool! So, what's next for this research? Are we going to have AI inspecting every bridge in the country?"
-},
-{
-  "voice": "af_sarah",
-  "text": "Well, the researchers acknowledge that their dataset was somewhat limited, so they plan to expand it with more diverse images. They also want to explore other AI models to see if they can push the boundaries of crack detection even further."
-},
-{
-  "voice": "am_michael",
-  "text": "That sounds like a solid plan! It's exciting to see AI being used to make our infrastructure safer and more reliable."
-},
-{
-  "voice": "af_sarah",
-  "text": "Absolutely! It's a great example of how technology can improve our everyday lives in ways we might not even realize."
-},
-{
-  "voice": "am_michael",
-  "text": "So, to recap: YOLOv8, especially the medium-sized model with SGD optimization, is a promising tool for detecting cracks in bridges. This can lead to earlier maintenance and safer infrastructure."
-},
-{
-  "voice": "af_sarah",
-  "text": "Spot on, Michael! And the research is ongoing to make it even better."
-},
-{
-  "voice": "am_michael",
-  "text": "Fantastic! Thanks for cracking open this research for us, Sarah! (Pun intended!)"
-},
-{
-  "voice": "af_sarah",
-  "text": "You're welcome, Michael! And to our listeners, if you see a crack in a bridge, maybe don't try to diagnose it yourself. Leave it to the AI... and the professionals!"
-},
-{
-  "voice": "am_michael",
-  "text": "Great advice! And if you're interested in learning more about AI and infrastructure, check out the links in the show notes. Until next time!"
-}
+  {
+    "voice": "af_sarah",
+    "text": "Hey everyone, and welcome to 'AI Decode'! I'm Sarah."
+  },
+  {
+    "voice": "am_michael",
+    "text": "And I'm Michael! Today, we're diving into some interesting observations about TV viewing habits and the rise of sedentary lifestyles. Ready to analyze, Sarah?"
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Definitely! So, this paper starts with TV viewing habits. Apparently, women love reality shows. Who knew? What were the key takeaways there, Michael?"
+  },
+  {
+    "voice": "am_michael",
+    "text": "Well, it seems women are much more into reality TV, with nearly 70% tuning in, compared to only about a third of men. Also, older folks, those 45 and up, are more likely to watch TV in general."
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Interesting! So, age and gender play a big role. What about game shows? Were there any differences there?"
+  },
+  {
+    "voice": "am_michael",
+    "text": "Actually, the paper noted that for game shows, the viewership was nearly identical across genders, around 60%. But again, the 45+ age group had the highest viewership."
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Okay, so older viewers are the champions of both reality and game shows. Makes sense! Now, the paper also touched on sedentary lifestyles. What's the big picture there?"
+  },
+  {
+    "voice": "am_michael",
+    "text": "Basically, it highlights how our modern, automated world is contributing to a more inactive lifestyle. Think about it: automated gates, doors... we barely have to move!"
+  },
+  {
+    "voice": "af_sarah",
+    "text": "True! It's like we're living in the future from 'WALL-E', but without the cool floating chairs... yet. So, what are the main culprits behind this sedentary trend?"
+  },
+  {
+    "voice": "am_michael",
+    "text": "The paper points to automation reducing physical activity and increased consumption of processed foods. And get this: a study by MIT found that poor nutrition can speed up the aging process by up to 20% in adults and a whopping 50% in children!"
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Wow, that's a wake-up call! So, what can we do about it? Any solutions offered in the paper?"
+  },
+  {
+    "voice": "am_michael",
+    "text": "Absolutely! The paper suggests increasing daily activity – even a 30-minute walk can make a difference. Plus, focusing on a proper diet with the right nutrients and cutting back on junk food is crucial."
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Simple yet effective! It's all about small changes that add up. So, to recap: women love reality TV, older folks watch more TV overall, automation contributes to sedentary lifestyles, and diet and exercise are key to combating it."
+  },
+  {
+    "voice": "am_michael",
+    "text": "Exactly! It's a reminder that even in our increasingly automated world, we need to make conscious choices to stay active and healthy."
+  },
+  {
+    "voice": "af_sarah",
+    "text": "Great insights, Michael! Thanks for breaking it down for us. And to our listeners, what small change will you make today to be a bit more active? Let us know!"
+  },
+  {
+    "voice": "am_michael",
+    "text": "That's right! Get moving, stay healthy, and join us next time on 'AI Decode' for more fascinating research made easy!"
+  }
 ]
 ```

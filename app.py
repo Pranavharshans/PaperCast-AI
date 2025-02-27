@@ -4,15 +4,58 @@ import tempfile
 from datetime import datetime
 from paper_processing import PaperProcessor
 
-def main():
-    st.title("PaperCast-AI")
-    st.subheader("Convert Research Papers to Podcasts")
+# Set page config and custom styling
+st.set_page_config(
+    page_title="PaperCast-AI",
+    page_icon="🎙️",
+    layout="wide"
+)
 
+# Custom CSS
+st.markdown("""
+    <style>
+    .main {
+        padding: 2rem;
+    }
+    .stButton > button {
+        width: 100%;
+        border-radius: 5px;
+        height: 3em;
+        background-color: #FF4B4B;
+        color: white;
+    }
+    .stButton > button:hover {
+        background-color: #FF6B6B;
+        color: white;
+    }
+    .status-box {
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1rem 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+def main():
+    # Header section with description
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.title("🎙️ PaperCast-AI")
+        st.markdown("""
+        Transform research papers into engaging audio content! Upload your PDF and let AI do the work.
+        
+        **Features:**
+        - 📄 PDF text extraction
+        - 🤖 AI-powered summarization
+        - 🎧 Natural voice synthesis
+        """)
+    
     # Initialize the paper processor
     processor = PaperProcessor()
 
-    # File upload section
-    uploaded_file = st.file_uploader("Upload a PDF file", type="pdf")
+    # File upload section with improved styling
+    st.markdown("### 📎 Upload Your Paper")
+    uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
     if uploaded_file is not None:
         # Create a temporary file to store the PDF
@@ -21,62 +64,80 @@ def main():
             pdf_path = tmp_file.name
 
         try:
-            # Display PDF preview
-            with st.expander("Preview PDF", expanded=True):
-                st.write("PDF Preview:")
-                st.write(f"Filename: {uploaded_file.name}")
-                st.write(f"Size: {uploaded_file.size} bytes")
+            # Enhanced PDF preview
+            with st.expander("📑 Document Details", expanded=True):
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.markdown("**File Information**")
+                    st.write(f"📄 Name: {uploaded_file.name}")
+                    st.write(f"📦 Size: {uploaded_file.size / 1024:.2f} KB")
+                with col2:
+                    st.markdown("**Processing Status**")
+                    st.write("✅ File uploaded successfully")
+                    st.write("⏳ Ready for conversion")
 
-            # Convert to Podcast button
-            if st.button("Convert to Podcast"):
-                with st.spinner("Processing your PDF..."):
+            # Convert to Podcast button with improved styling
+            st.markdown("### 🎯 Generate Podcast")
+            if st.button("Start Processing"):
+                progress_bar = st.progress(0)
+                status_text = st.empty()
+                
+                with st.spinner(""):
                     try:
                         # Process the PDF
+                        status_text.text("📚 Analyzing the paper...")
+                        progress_bar.progress(25)
                         summary = processor.process_pdf(pdf_path)
+                        progress_bar.progress(50)
                         
-                        # Display the generated summary
-                        st.subheader("Generated Summary")
-                        st.write(summary)
+                        # Display the generated summary in a nice format
+                        st.markdown("### 📝 Generated Script")
+                        with st.expander("View Script", expanded=True):
+                            st.code(summary, language='json')
                         
-                        # Save the summary to a JSON file
+                        # Save the summary
+                        status_text.text("💾 Saving the script...")
+                        progress_bar.progress(75)
                         json_path = "podcast_script.json"
                         with open(json_path, 'w') as f:
                             f.write(summary)
-                        
-                        st.success("PDF processing complete!")
 
-                        # Generate audio from the JSON
-                        try:
-                            os.system(f"python podcast_generation.py")
+                        # Generate audio
+                        status_text.text("🔊 Generating audio...")
+                        os.system(f"python podcast_generation.py")
+                        progress_bar.progress(100)
+                        status_text.text("✨ Processing complete!")
+                        
+                        # Audio player and download section
+                        if os.path.exists("podcast.wav"):
+                            st.markdown("### 🎧 Your Podcast")
+                            st.audio("podcast.wav")
                             
-                            # Check if audio file was generated
-                            if os.path.exists("podcast.wav"):
-                                st.subheader("Listen to Podcast")
-                                st.audio("podcast.wav")
-                                
-                                # Download buttons
-                                col1, col2 = st.columns(2)
-                                with col1:
-                                    with open("podcast.wav", "rb") as f:
-                                        st.download_button(
-                                            label="Download Audio",
-                                            data=f,
-                                            file_name=f"podcast_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav",
-                                            mime="audio/wav"
-                                        )
-                                with col2:
+                            # Download options in a nice grid
+                            st.markdown("### 📥 Download Options")
+                            dl_col1, dl_col2 = st.columns(2)
+                            with dl_col1:
+                                with open("podcast.wav", "rb") as f:
                                     st.download_button(
-                                        label="Download Script",
-                                        data=summary,
-                                        file_name=f"script_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-                                        mime="application/json"
+                                        label="📁 Download Audio (WAV)",
+                                        data=f,
+                                        file_name=f"podcast_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav",
+                                        mime="audio/wav"
                                     )
-                            else:
-                                st.error("Audio generation failed")
-                        except Exception as e:
-                            st.error(f"Error generating audio: {str(e)}")
+                            with dl_col2:
+                                st.download_button(
+                                    label="📄 Download Script (JSON)",
+                                    data=summary,
+                                    file_name=f"script_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
+                                    mime="application/json"
+                                )
+                        else:
+                            st.error("❌ Audio generation failed. Please try again.")
+                            
                     except Exception as e:
-                        st.error(f"Error processing PDF: {str(e)}")
+                        st.error(f"❌ Error during processing: {str(e)}")
+                        progress_bar.empty()
+                        status_text.empty()
         finally:
             # Clean up temporary file
             if os.path.exists(pdf_path):
