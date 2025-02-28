@@ -2,67 +2,67 @@
 [
   {
     "voice": "af_sarah",
-    "text": "Hey everyone, and welcome to 'AI Decode'! I'm Sarah."
+    "text": "Hey everyone, and welcome back to the AI Explorers podcast! I'm Sarah,"
   },
   {
     "voice": "am_michael",
-    "text": "And I'm Michael! Today, we're diving into some interesting observations about TV viewing habits and the rise of sedentary lifestyles. Ready to analyze, Sarah?"
+    "text": "And I'm Michael! Today, we're doing something a little different. Instead of discussing a published paper, we're diving into the resume of Pranav Harshan, an AI enthusiast, to see what cool projects he's been up to!"
   },
   {
     "voice": "af_sarah",
-    "text": "Definitely! So, this paper starts with TV viewing habits. Apparently, women love reality shows. Who knew? What were the key takeaways there, Michael?"
+    "text": "That's right, Michael! Think of it as a project showcase turned podcast episode. Pranav seems to have a passion for making AI accessible. What caught your eye first?"
   },
   {
     "voice": "am_michael",
-    "text": "Well, it seems women are much more into reality TV, with nearly 70% tuning in, compared to only about a third of men. Also, older folks, those 45 and up, are more likely to watch TV in general."
+    "text": "Definitely his 'PaperCast-AI' project! It's literally what we're doing right now – turning research papers into engaging podcast conversations. How meta is that?"
   },
   {
     "voice": "af_sarah",
-    "text": "Interesting! So, age and gender play a big role. What about game shows? Were there any differences there?"
+    "text": "Super meta! He built an open-source AI system that uses the Gemini API to extract key insights from papers and then uses Kokoro TTS to generate speech. It even adjusts the podcast length based on the paper's content. It's like a baby version of us!"
   },
   {
     "voice": "am_michael",
-    "text": "Actually, the paper noted that for game shows, the viewership was nearly identical across genders, around 60%. But again, the 45+ age group had the highest viewership."
+    "text": "Exactly! And it's designed to make complex academic topics more accessible, which is our mission too. Speaking of complex, he's also been fine-tuning LLaMA 3.2 for Chain-of-Thought reasoning."
   },
   {
     "voice": "af_sarah",
-    "text": "Okay, so older viewers are the champions of both reality and game shows. Makes sense! Now, the paper also touched on sedentary lifestyles. What's the big picture there?"
+    "text": "Ah yes, LLaMA! For our listeners who aren't deep in the AI world, LLaMA is a large language model. Chain-of-Thought reasoning is basically getting the AI to explain its thinking process step-by-step, making it more reliable and understandable. He used LoRA and PEFT techniques. Any idea what these are?"
   },
   {
     "voice": "am_michael",
-    "text": "Basically, it highlights how our modern, automated world is contributing to a more inactive lifestyle. Think about it: automated gates, doors... we barely have to move!"
+    "text": "LoRA (Low-Rank Adaptation) and PEFT (Parameter-Efficient Fine-Tuning) are methods to fine-tune large models like LLaMA without needing massive computing power. It's like giving a sports car a tune-up instead of rebuilding the entire engine."
   },
   {
     "voice": "af_sarah",
-    "text": "True! It's like we're living in the future from 'WALL-E', but without the cool floating chairs... yet. So, what are the main culprits behind this sedentary trend?"
+    "text": "That's a great analogy! He's also worked on a computer vision project for crack detection using YOLO. That's pretty cool, right?"
   },
   {
     "voice": "am_michael",
-    "text": "The paper points to automation reducing physical activity and increased consumption of processed foods. And get this: a study by MIT found that poor nutrition can speed up the aging process by up to 20% in adults and a whopping 50% in children!"
+    "text": "Definitely! YOLO is a real-time object detection system. His project aims to identify cracks in infrastructure images. Think about the applications for that – automatically inspecting bridges or buildings for damage. Super useful!"
   },
   {
     "voice": "af_sarah",
-    "text": "Wow, that's a wake-up call! So, what can we do about it? Any solutions offered in the paper?"
+    "text": "And it could save a lot of time and money, not to mention improve safety. He's also built a virtual calculator using hand gestures and the Gemini API! Seems like he's really into human-computer interaction."
   },
   {
     "voice": "am_michael",
-    "text": "Absolutely! The paper suggests increasing daily activity – even a 30-minute walk can make a difference. Plus, focusing on a proper diet with the right nutrients and cutting back on junk food is crucial."
+    "text": "Yeah, it's a fascinating field. Imagine controlling your computer with just hand movements! He's using computer vision and machine learning to make that a reality. Plus, he's got internships in AWS and MERN stack development, showing a well-rounded skillset."
   },
   {
     "voice": "af_sarah",
-    "text": "Simple yet effective! It's all about small changes that add up. So, to recap: women love reality TV, older folks watch more TV overall, automation contributes to sedentary lifestyles, and diet and exercise are key to combating it."
+    "text": "Absolutely! He's got the cloud, the front-end, the back-end, and a strong focus on AI. Okay, Michael, rapid-fire takeaways! What are the key things we learned from Pranav's resume?"
   },
   {
     "voice": "am_michael",
-    "text": "Exactly! It's a reminder that even in our increasingly automated world, we need to make conscious choices to stay active and healthy."
+    "text": "Passion for AI accessibility, hands-on experience with cutting-edge models like LLaMA, practical applications of computer vision, and a solid foundation in full-stack development. This guy is going places!"
   },
   {
     "voice": "af_sarah",
-    "text": "Great insights, Michael! Thanks for breaking it down for us. And to our listeners, what small change will you make today to be a bit more active? Let us know!"
+    "text": "Agreed! It's inspiring to see someone so dedicated to making AI more understandable and useful. Thanks for joining us on this slightly different episode, everyone! And Pranav, if you're listening, keep up the amazing work!"
   },
   {
     "voice": "am_michael",
-    "text": "That's right! Get moving, stay healthy, and join us next time on 'AI Decode' for more fascinating research made easy!"
+    "text": "Definitely! And to our listeners, what projects are *you* working on? Let us know in the comments! Until next time, keep exploring!"
   }
 ]
 ```

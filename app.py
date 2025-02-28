@@ -90,10 +90,8 @@ def main():
                         summary = processor.process_pdf(pdf_path)
                         progress_bar.progress(50)
                         
-                        # Display the generated summary in a nice format
-                        st.markdown("### 📝 Generated Script")
-                        with st.expander("View Script", expanded=True):
-                            st.code(summary, language='json')
+                        # Show script generation success
+                        status_text.text("✅ Script generated successfully!")
                         
                         # Save the summary
                         status_text.text("💾 Saving the script...")
@@ -113,23 +111,14 @@ def main():
                             st.markdown("### 🎧 Your Podcast")
                             st.audio("podcast.wav")
                             
-                            # Download options in a nice grid
-                            st.markdown("### 📥 Download Options")
-                            dl_col1, dl_col2 = st.columns(2)
-                            with dl_col1:
-                                with open("podcast.wav", "rb") as f:
-                                    st.download_button(
-                                        label="📁 Download Audio (WAV)",
-                                        data=f,
-                                        file_name=f"podcast_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav",
-                                        mime="audio/wav"
-                                    )
-                            with dl_col2:
+                            # Download audio option
+                            st.markdown("### 📥 Download Audio")
+                            with open("podcast.wav", "rb") as f:
                                 st.download_button(
-                                    label="📄 Download Script (JSON)",
-                                    data=summary,
-                                    file_name=f"script_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
-                                    mime="application/json"
+                                    label="📁 Download Audio (WAV)",
+                                    data=f,
+                                    file_name=f"podcast_{datetime.now().strftime('%Y%m%d_%H%M%S')}.wav",
+                                    mime="audio/wav"
                                 )
                         else:
                             st.error("❌ Audio generation failed. Please try again.")
