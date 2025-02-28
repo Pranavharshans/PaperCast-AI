@@ -54,7 +54,7 @@ def main():
     processor = PaperProcessor()
 
     # File upload section with improved styling
-    st.markdown("### 📎 Upload Your Paper")
+    st.markdown("### 📎 Upload Your  Research Paper")
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
     
     if uploaded_file is not None:

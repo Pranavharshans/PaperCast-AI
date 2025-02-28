@@ -15,7 +15,7 @@ import json
 # Initialize Kokoro
 kokoro = Kokoro("kokoro-v1.0.onnx", "voices.json")
 
-# Initialize sample_rate with a default value (will be updated with actual rate from kokoro)
+
 sample_rate = 24000  # Default sample rate for Kokoro
 
 def random_pause(min_duration=0.5, max_duration=2.0):
@@ -28,7 +28,7 @@ def load_script(json_path):
     """Load the podcast script from JSON file"""
     try:
         with open(json_path, 'r') as f:
-            # Remove the ```json and ``` markers if present
+
             content = f.read()
             content = content.replace('```json\n', '').replace('\n```', '')
             return json.loads(content)
@@ -74,7 +74,7 @@ if not audio:
     exit(1)
 
 # Concatenate all audio parts
-print("Concatenating audio segments...")
+#print("Concatenating audio segments...")
 audio = np.concatenate(audio)
 
 # Save the generated audio to file

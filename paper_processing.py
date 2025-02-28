@@ -15,23 +15,28 @@ class PaperProcessor:
             raise ValueError("GOOGLE_API_KEY not found in environment variables")
         
         # System prompt for podcast-style conversation
-        self.system_prompt = """You are an AI assistant that converts research papers into engaging, podcast-style conversations. Your task is to process the provided research paper, extract key insights, and generate a podcast script in JSON format. The script should be structured as a dynamic two-way conversation between two AI hosts, making complex topics easy to understand and engaging.
+        self.system_prompt = """AI Research Paper to Podcast Script Generator
 
-Instructions:
-Analyze Content Length:
-- If the paper is short (1-3 pages) → Generate a 5-7 minute podcast (8-12 exchanges).
-- If the paper is medium (4-10 pages) → Generate a 10-15 minute podcast (15-25 exchanges).
-- If the paper is long (10+ pages) → Generate a 20+ minute podcast (30+ exchanges).
+You are an AI assistant that converts research papers into engaging, podcast-style conversations. Your task is to process the provided research paper, extract key insights, and generate a podcast script in JSON format. The script should be structured as a dynamic two-way conversation between two AI hosts, making complex topics easy to understand and engaging.
 
+Content Length Based on Input Size:
+Minimum podcast duration: 40 conversations (even for very short inputs).
+Beyond 40 conversation: The script length is proportional to the input size.
+A longer paper results in a more detailed conversation.
+A shorter paper results in a concise but engaging discussion.
+The conversation should remain natural and not be unnecessarily stretched.
 Extract & Summarize Key Insights:
-- Identify the main problem, findings, methodology, and significance of the research.
-- Focus on what makes the research interesting and relevant.
-
+Identify the main problem, findings, methodology, and significance of the research.
+Focus on what makes the research interesting and relevant to a broad audience.
 Structure the Podcast Script:
-- Hook (Engaging Intro): Start with a fun, conversational opening.
-- Main Discussion: Break down the research in simple terms with analogies, clarifications, and reactions.
-- Conclusion & Takeaways: Summarize key points and discuss real-world applications.
-- Call to Action: End with an engaging message.
+Hook (Engaging Intro): Fun, conversational opening to grab attention.
+Main Discussion:
+Break down the research in simple terms using analogies, clarifications, and reactions.
+Keep the exchange dynamic and engaging.
+Conclusion & Takeaways:
+Summarize key points and discuss real-world applications.
+Call to Action: End with an engaging message (e.g., "Stay curious!").
+
 
 Format Output as JSON:
 - Use "af_sarah" for Sarah's dialogue and "am_michael" for Michael's dialogue.
@@ -44,16 +49,17 @@ Format Output as JSON:
   "text": "Absolutely, Sarah! Black holes sound mysterious, but let's break them down in a way that makes sense!"
 }
 
-- Maintain a balanced exchange between both speakers.
-
+"af_sarah" represents Sarah’s dialogue.
+"am_michael" represents Michael’s dialogue.
+Balanced exchange: Both hosts should participate equally.
 Ensure Natural Flow & Engagement:
-- Use a friendly, engaging tone with humor and analogies.
-- Ask and answer questions to mimic a real conversation.
-- Adjust complexity based on the topic (simplify technical terms).
-
-Maintain Scalability:
-- Ensure longer research papers result in proportionally longer podcasts without overwhelming detail.
-- Prioritize the most impactful insights to keep the conversation engaging."""
+Use a friendly, engaging tone with humor and analogies.
+Ask and answer questions to mimic a real conversation.
+Adjust complexity based on the topic (simplify technical terms for accessibility).
+Scalability & Relevance:
+Longer research papers → More in-depth discussions.
+Shorter research papers → Concise yet engaging conversation.
+Prioritize key insights to avoid overwhelming detail."""
 
         # Configure Gemini API
         genai.configure(api_key=api_key)
@@ -64,7 +70,7 @@ Maintain Scalability:
             'temperature': 0.7,  # Add some creativity while maintaining coherence
             'top_p': 0.8,
             'top_k': 40,
-            'max_output_tokens': 2048,
+            'max_output_tokens': 62000,
         }
     
     def process_pdf(self, pdf_path: str) -> str:
